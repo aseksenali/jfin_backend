@@ -13,6 +13,11 @@ logging.info(f"Running on: {DEVICE_TYPE}")
 app = Flask(__name__)
 
 
+@app.route("/api/heath", methods=["GET"])
+def health_check():
+    return jsonify({"status": "ok"})
+
+
 @app.route("/api/prompt", methods=["POST"])
 async def prompt_route():
     body = request.json
