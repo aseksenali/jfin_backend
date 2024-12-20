@@ -11,6 +11,8 @@ from jfin_gpt.constants import EMBEDDING_MODEL_NAME, DEVICE_TYPE, MILVUS_URL
 from jfin_gpt.documents import documents_service
 from jfin_gpt.exceptions import CollectionDoesNotExistException
 
+from backend.jfin_gpt.constants import INITIAL_SOURCES_DIRECTORY
+
 
 class MilvusService:
     _instance = None
@@ -62,7 +64,7 @@ class MilvusService:
     def create_collection(self):
         logging.info(f"Creating collection {self._collection_name}...")
         if not self._vector_store.client.has_collection(self._collection_name):
-            Milvus.from_documents(documents_service.split_to_documents('./sources/blank.pdf'),
+            Milvus.from_documents(documents_service.split_to_documents(f'{INITIAL_SOURCES_DIRECTORY}/blank.pdf'),
                                   embedding=self._embeddings,
                                   collection_name=self._collection_name, auto_id=True,
                                   enable_dynamic_field=True)

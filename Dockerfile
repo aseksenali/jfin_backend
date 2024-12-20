@@ -35,7 +35,8 @@ ENV MILVUS_URL="http://milvus-standalone:19530" \
     MODEL_NAME="llama3.2" \
     BACKEND_URL="http://backend:5110" \
     REINDEX=true \
-    SOURCE_DIRECTORY="/app/sources"
+    SOURCE_DIRECTORY="/app/sources" \
+    INITIAL_SOURCES_DIRECTORY="/app/jfin_gpt/sources"
 
 # Copy application code
 COPY . .

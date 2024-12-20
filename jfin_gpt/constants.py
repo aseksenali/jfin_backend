@@ -23,6 +23,7 @@ def get_bool_env_variable(name: str, default_value: bool | None = None) -> bool:
 ROOT_DIRECTORY = Path(__file__).parent.resolve()
 
 SOURCE_DIRECTORY = os.getenv('SOURCE_DIRECTORY', "./sources")
+INITIAL_SOURCES_DIRECTORY = os.getenv('INITIAL_SOURCES_DIRECTORY', './sources')
 
 EMBEDDING_MODEL_NAME = os.getenv('EMBEDDING_MODEL_NAME', 'intfloat/multilingual-e5-base')
 MODEL_NAME = os.getenv('MODEL_NAME', 'llama3.2')
