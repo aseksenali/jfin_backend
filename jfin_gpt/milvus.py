@@ -5,13 +5,10 @@ from typing import List
 from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_milvus import Milvus
-from pymilvus import FieldSchema, DataType, CollectionSchema
 
-from jfin_gpt.constants import EMBEDDING_MODEL_NAME, DEVICE_TYPE, MILVUS_URL
+from jfin_gpt.constants import EMBEDDING_MODEL_NAME, DEVICE_TYPE, MILVUS_URL, INITIAL_SOURCES_DIRECTORY
 from jfin_gpt.documents import documents_service
 from jfin_gpt.exceptions import CollectionDoesNotExistException
-
-from backend.jfin_gpt.constants import INITIAL_SOURCES_DIRECTORY
 
 
 class MilvusService:

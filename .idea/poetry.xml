@@ -4,6 +4,7 @@
     <option name="poetryVirtualenvPaths">
       <set>
         <option value="$USER_HOME$/AppData/Local/pypoetry/Cache/virtualenvs/jfin-gpt-6C1EF2yJ-py3.12/Scripts/python.exe" />
+        <option value="$USER_HOME$/AppData/Local/pypoetry/Cache/virtualenvs/jfin-gpt-GliZRuIe-py3.12/Scripts/python.exe" />
       </set>
     </option>
   </component>
