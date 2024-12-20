@@ -6,7 +6,7 @@ from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_milvus import Milvus
 
-from jfin_gpt.constants import EMBEDDING_MODEL_NAME, DEVICE_TYPE, MILVUS_URL, INITIAL_SOURCES_DIRECTORY
+from jfin_gpt.constants import EMBEDDING_MODEL_NAME, DEVICE_TYPE, MILVUS_URL
 from jfin_gpt.documents import documents_service
 from jfin_gpt.exceptions import CollectionDoesNotExistException
 
@@ -61,10 +61,10 @@ class MilvusService:
     def create_collection(self):
         logging.info(f"Creating collection {self._collection_name}...")
         if not self._vector_store.client.has_collection(self._collection_name):
-            Milvus.from_documents(documents_service.split_to_documents(f'{INITIAL_SOURCES_DIRECTORY}/blank.pdf'),
+            Milvus.from_documents(Document(page_content="test", source="test.pdf"),
                                   embedding=self._embeddings,
                                   collection_name=self._collection_name, auto_id=True,
-                                  enable_dynamic_field=True)
+                                  enable_dynamic_field=True, connection_args={"uri": self._url})
             self._clear_collection()
             logging.info(f"Created collection {self._collection_name}")
         else:
