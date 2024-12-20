@@ -61,7 +61,7 @@ class MilvusService:
     def create_collection(self):
         logging.info(f"Creating collection {self._collection_name}...")
         if not self._vector_store.client.has_collection(self._collection_name):
-            Milvus.from_documents(Document(page_content="test", source="test.pdf"),
+            Milvus.from_documents([Document(page_content="test", source="test.pdf")],
                                   embedding=self._embeddings,
                                   collection_name=self._collection_name, auto_id=True,
                                   enable_dynamic_field=True, connection_args={"uri": self._url})
